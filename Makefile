@@ -2,9 +2,10 @@ CC = g++
 RM = rm
 AR = ar
 CP = cp
-CC_FLAGS = -W -std=c++11
+CC_FLAGS = -W -Wextra -std=c++11
 LD_FLAGS =
 DEFINES =
+
 
 
 LINKABLE = ./release/discordpp-0_1_0.a
