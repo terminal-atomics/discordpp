@@ -1,5 +1,2 @@
-/release/*
-!/release/.gitkeep
-
-/objects/*
-!/objects/.gitkeep
+/bin
+/build
