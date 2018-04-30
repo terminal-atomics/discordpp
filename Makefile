@@ -11,18 +11,11 @@ DEFINES =
 LINKABLE = ./bin/discordpp-0_1_0.a
 DLINKABLE = ./bin/discordpp-0_1_0.so
 
-# Next line will add a .a to the final library
-STATIC_LIBS_PATH =
-
-# Add libraries as -lcurl etc.
-STATIC_LIBS =
-
 INCLUDES = -I./include
 
 # THESE SHOULD NOT BE EDITED
 SOURCES = $(wildcard src/*.cpp)
 OBJECTS = $(patsubst src/%.cpp, build/%.o, $(SOURCES))
-STATIC_LIBS_CMD = -Wl,-bstatic $(shell pkg-config --libs $(STATIC_LIBS))
 INCLUDES += $(shell pkg-config --cflags $(STATIC_LIBS))
 
 .PHONY: clean
