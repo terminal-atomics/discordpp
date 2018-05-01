@@ -2,8 +2,8 @@
 #include <string>
 
 namespace dpp {
-  struct http_res {
-    std::string body;
-    std::string base;
-  };
+    struct http_res {
+        std::string body;
+        std::string base;
+    };
 }
