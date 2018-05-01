@@ -1,4 +1,7 @@
 language: c++
 
+c++:
+  - g++-4.8
+  - g++-7.3
 script:
   - make
