@@ -7,7 +7,7 @@ language: c++
 before_install:
 - echo $LANG
 - echo $LC_ALL
-- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then ./install-all-deps.sh; fi
 
 compiler:
   - clang
