@@ -4,7 +4,7 @@ AR = ar
 CP = cp
 MKDIR = mkdir
 
-CC_FLAGS = -W -Wextra -std=c++11
+CC_FLAGS = -W -Wextra -lcurl -std=c++11
 LD_FLAGS =
 
 LINKABLE = ./bin/discordpp-0_1_0.a
