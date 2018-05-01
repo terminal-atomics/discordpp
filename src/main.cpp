@@ -1,13 +1,14 @@
-#include <dpp/urler.hpp>
+#include <dpp/discord_http.hpp>
 #include <iostream>
+#include <string>
+#include <nlohmann/json.hpp>
 
 int main() {
-  dpp::urler u;
-  u.set_path("/api/gateway");
-  u.set_http_ver(11);
-  u.set_method("GET");
-  u.set_header("Host", "discordapp.com");
-  u.set_header("User-Agent", "DiscordBot");
-  std::cout << u.perform("discordapp.com").body;
+  dpp::discord_http dh;
+  dh.add_token("Bot", "");
+  nlohmann::json message;
+  message["content"] = "Message sent from C++";
+  nlohmann::json j = dh.post("/channels/418390319659483137/messages", message);
+  std::cout << j.dump();
   return 0;
 }

@@ -54,6 +54,13 @@ dpp::http_res dpp::urler::perform(std::string t_url) {
     }
   }
   
+  if (m_body.size() > 0) {
+    req.body() = m_body;
+    req.prepare_payload();
+  }
+
+  std::cout << req << std::endl;
+  
   http::write(stream, req); // SENDING
 
   boost::beast::flat_buffer buffer;
