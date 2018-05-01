@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Downloading websocketpp tarball..."
 wget https://github.com/zaphoyd/websocketpp/archive/0.7.0.tar.gz
 echo "Untar the tarball..."

@@ -1,0 +1,24 @@
+os:
+- linux
+- osx
+
+sudo: required
+
+language: c++
+
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- if [ $TRAVIS_OS_NAME == linux ]; then ./install-all-deps.sh; fi
+
+compiler:
+  - clang
+  - gcc
+  - g++-4.8
+  - g++-7.3
+
+script:
+  - make
+
+after_script:
+  - cat log_output
