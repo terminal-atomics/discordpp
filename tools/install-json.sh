@@ -1,3 +1,4 @@
+#!/bin/bash
 cd include/
 mkdir nlohmann
 cd nlohmann/

@@ -1,3 +1,5 @@
-bash tools/compile-libcurl.sh
-bash tools/install-json.sh
-bash tools/install-websocketpp.sh
+#!/bin/bash
+
+./tools/compile-libcurl.sh
+./tools/install-json.sh
+./tools/install-websocketpp.sh

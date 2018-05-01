@@ -1,7 +1,19 @@
+os:
+- linux
+- osx
+
 language: c++
 
-c++:
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- if [ $TRAVIS_OS_NAME == linux ]; then ./scripts/dependencies.sh; fi
+
+compiler:
+  - clang
+  - gcc
   - g++-4.8
   - g++-7.3
+
 script:
   - make
