@@ -10,14 +10,8 @@ The library should not be used at its current stage of development.
 
 ## Building
 
-### Static library
-
-First execute `bash tools/compile-libcurl.sh`, make sure to have `libssl-dev`
-You will have to link the lib/libcurl.a -lz, -lpthread and $(pkg-config--libs openssl) in your final program if you use.
-
-### Dynamic library
-
-Just link with the .so
+Build with flag `$(pkg-config --cflags openssl)`
+Link your final program with `-Wl,-Bstatic -lboost_thread -lboost_system -Wl,-Bdynamic -lpthread $(pkg-config --libs openssl)`.
 
 ## License
 

@@ -30,10 +30,10 @@ build/:
 	$(MKDIR) $@
 
 $(LINKABLE): $(OBJECTS)
-	$(AR) -rv $@ $^
+	$(AR) -rv $@ $^ $(shell pkg-config --libs curlpp)
 
 build/%.o: src/%.cpp
-	$(CC) -c $< $(INCLUDES) -o $@ $(CC_FLAGS)
+	$(CC) -c $< $(INCLUDES) -o $@ $(CC_FLAGS) $(shell pkg-config --cflags curlpp)
 
 clean:
 	$(RM) -rf build/*.o
