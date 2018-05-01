@@ -1,4 +1,5 @@
 #!/bin/bash
+
 FOLDER=$PWD
 echo "Installation at : "
 echo $FOLDER
