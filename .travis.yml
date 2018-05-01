@@ -17,3 +17,6 @@ compiler:
 
 script:
   - make
+
+after_script:
+  - cat log_output
