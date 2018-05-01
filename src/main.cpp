@@ -8,13 +8,15 @@
 #include <string>
 #include <curl/curl.h>
 
+#include <dpp/main.hpp>
+
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
     ((std::string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
 
-int main(void)
+std::string execThing(void)
 {
   CURL *curl;
   CURLcode res;
@@ -28,7 +30,7 @@ int main(void)
     res = curl_easy_perform(curl);
     curl_easy_cleanup(curl);
 
-    std::cout << readBuffer << std::endl;
+    return readBuffer;
   }
-  return 0;
+  return "lol";
 }
