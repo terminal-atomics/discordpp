@@ -1,40 +1,36 @@
-CC = g++
-RM = rm
-AR = ar
-CP = cp
-MKDIR = mkdir
+# <-- Discord++ Makfile -->
+# Copyright TerminalAtomics (c)
 
-CC_FLAGS = -W -Wextra -std=c++11
-LD_FLAGS =
+# CONFIGURATION
+DELETE = rm -f 
 
-LINKABLE = ./bin/discordpp-0_1_0.a
+# DON'T CHANGE
+SRC_DIR = ./src
+LIB_DIR = ./src/libs
+OBJ_DIR = ./build/obj
+INC_DIR = ./include
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+LIB_FILES = $(wildcard $(LIB_DIR)/*.cpp)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES)) $(patsubst $(LIB_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(LIB_FILES))
+GPP_CMD = g++
+LDFLAGS = -Wl,-Bstatic -lboost_thread -lboost_system -Wl,-Bdynamic -lpthread -lssl -lcrypto
+CPPFLAGS = -I ./include --std=c++11 -Werror -lssl -lcrypto
+CXXFLAGS = 
+OUTPUT = ./build/discordpp
 
-INCLUDES = -I./include
-
-# THESE SHOULD NOT BE EDITED
-SOURCES = $(wildcard src/*.cpp)
-OBJECTS = $(patsubst src/%.cpp, build/%.o, $(SOURCES))
-
-.PHONY: clean
-
-.SUFFIXES:
-
-all: dirs $(LINKABLE)
-
-dirs: bin/ build/
-
-bin/:
-	$(MKDIR) $@
-
-build/:
-	$(MKDIR) $@
-
-$(LINKABLE): $(OBJECTS)
-	$(AR) -rv $@ $^ $(shell pkg-config --libs curlpp)
-
-build/%.o: src/%.cpp
-	$(CC) -c $< $(INCLUDES) -o $@ $(CC_FLAGS) $(shell pkg-config --cflags curlpp)
+all: $(OUTPUT)
 
 clean:
-	$(RM) -rf build/*.o
-	$(RM) -rf bin/*
+	$(DELETE) build/obj/*
+
+run: all
+	$(OUTPUT)
+
+$(OUTPUT): $(OBJ_FILES)
+	$(GPP_CMD) $^ -o $@ $(LDFLAGS)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(GPP_CMD) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+
+$(OBJ_DIR)/%.o: $(LIB_DIR)/%.cpp
+	$(GPP_CMD) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
