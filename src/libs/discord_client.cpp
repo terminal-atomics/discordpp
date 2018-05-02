@@ -13,7 +13,7 @@ bool DiscordClient::login(string type, string token) {
 bool DiscordClient::SendMessage(string channel, string content) {
     nlohmann::json message;
     message["content"] = content;
-    nlohmann::json response = _dh.post("/channels/440135946801774602/messages", message);
+    nlohmann::json response = _dh.post("/channels/" + channel + "/messages", message);
     cout << response.dump();
 }
 
@@ -26,7 +26,7 @@ bool DiscordClient::SendEmbed(string channel, RichEmbed embed) {
     rembed["type"] = "rich";
     nlohmann::json message;
     message["embed"] = rembed.dump();
-    nlohmann::json response = _dh.post("/channels/440135946801774602/messages", message);
+    nlohmann::json response = _dh.post("/channels/" + channel + "/messages", message);
     cout << "response:" << endl;
     cout << response.dump();
 }
