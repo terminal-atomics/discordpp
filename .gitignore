@@ -6,4 +6,6 @@
 !/include/dpp/
 !/include/boost/
 
+/log_output
+
 /.vscode/
