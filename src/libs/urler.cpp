@@ -1,5 +1,5 @@
 #include <dpp/urler.hpp>
-#include <iostream>
+
 // Set common default values in the constructor
 dpp::urler::urler() {
   m_method = "GET";
@@ -60,7 +60,7 @@ dpp::http_res dpp::urler::perform(std::string t_url) {
   }
 
   // Write request, uncomment to debug
-  // std::cout << req << std::endl;
+  std::cout << req << std::endl;
   
   http::write(stream, req); // SENDING
 
