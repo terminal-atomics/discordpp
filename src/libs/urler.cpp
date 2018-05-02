@@ -59,7 +59,8 @@ dpp::http_res dpp::urler::perform(std::string t_url) {
     req.prepare_payload();
   }
 
-  std::cout << req << std::endl;
+  // Write request, uncomment to debug
+  // std::cout << req << std::endl;
   
   http::write(stream, req); // SENDING
 
