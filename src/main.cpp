@@ -2,11 +2,11 @@
 #include <iostream>
 #include <string>
 #include <nlohmann/json.hpp>
-#include <dpp/discord_client.hpp>
 
 int main() {
-    DiscordClient client;
-    client.login("Bot", "");
+  dpp::discord_http h;
+  std::cout << "hey micheal here !" << std::endl;
+  std::cout << h.get("/gateway", "")["url"] << std::endl; 
   // dh.add_token("Bot", "");
   // nlohmann::json message;
   // message["content"] = "Message sent from C++";

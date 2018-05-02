@@ -1,4 +1,5 @@
 #pragma once
+
 #include "urler.hpp"
 #include <nlohmann/json.hpp>
 #include <string>
@@ -11,12 +12,16 @@
 namespace dpp {
   class discord_http {
   private:
-    urler m_u;
+    std::string m_token_type;
+    std::string m_token;
+
   public:
-    discord_http();
     void add_token(std::string t_type, std::string t_token);
     nlohmann::json post(std::string t_endpoint, nlohmann::json t_payload);
     nlohmann::json get(std::string t_endpoint, std::string t_url_encoded);
     // Other methods are to be added
+
+  private:
+    void configure_urler_client(dpp::urler* p_u);
   };
 }
