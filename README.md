@@ -1,3 +1,6 @@
+Master [![Build Status](https://travis-ci.org/terminal-atomics/discordpp.svg?branch=master)](https://travis-ci.org/terminal-atomics/discordpp)
+
+Dev [![Build Status](https://travis-ci.org/terminal-atomics/discordpp.svg?branch=dev)](https://travis-ci.org/terminal-atomics/discordpp)
 # discordpp
 
 An efficient library that interfaces with the Discord API.
